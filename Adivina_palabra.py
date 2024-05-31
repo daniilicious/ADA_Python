@@ -25,26 +25,29 @@ def listo_empezar():
             return eleccion
         else:
             print("Regresa cuando estes listo para jugar")
+
 eleccion_usuario = listo_empezar()
 
-print(f"\nEmpecemos\n")  #inicio del juego
+print("\nEmpecemos\n")  #inicio del juego
 
-print("Palabra a adivinar: ", end=" ")  #pisitos para cada letra de la palabra
+print("Palabra a adivinar: ", end="")  #pisitos para cada letra de la palabra
 for char in palabra_adivinar:
-    print("_ ", end =" ")
+    print("_", end =" ")
 print("\n")
 
 #---------------condiciones del juego-----------------------------------------
-
 while vidas > 0:
     error = 0
+    mostrar_palabra = ""
+
     for char in palabra_adivinar:
         if char in aciertos:
-           print(char, end=" "),
-    else:
-        print("_ ",end=" "),
-        error += 1
-    print()
+           mostrar_palabra += char + " "
+        else:
+            mostrar_palabra += "_ "
+            error += 1
+    
+    print(mostrar_palabra)
 
     if error == 0:
        print("¡Ganaste!\n\n")
@@ -58,7 +61,7 @@ while vidas > 0:
        vidas -= 1
        print("Error")
 
-    print(f"Tienes {vidas} vida/s, \n")
+    print(f"Tienes {vidas} vida/s,\n")
     
     if vidas == 0:
        print("¡Perdiste! Mejor suerte en la proxima")
