@@ -6,11 +6,11 @@ def escoger_palabra(lista_palabras):
     palabra_escogida = choice(lista_palabras)
     return palabra_escogida.upper()
 
-palabras = ["amarillo", "tulipan", "esperanza", "rinoceronte", "dinamarca", "uruguay", "refrigerador", "puntualidad", "python", "culebra"]
+palabras = ["amarillo", "tulipan", "esperanza", "rinoceronte", "dinamarca", "uruguay", "refrigerador", "puntualidad", "python", "culebra", "comarca"]
 palabra_adivinar = escoger_palabra(palabras)
 letras_adivinar = set(palabra_adivinar)
 aciertos = set()
-vidas = 4
+vidas = 5
 
 print("Juguemos a adivinar la palabra")  #Mensaje de Inicio
 print(f"Ingresa tu nombre: ") 
@@ -29,7 +29,12 @@ eleccion_usuario = listo_empezar()
 
 print(f"\nEmpecemos\n")  #inicio del juego
 
-#---------------variables del juego-----------------------------------------
+print("Palabra a adivinar: ", end=" ")  #pisitos para cada letra de la palabra
+for char in palabra_adivinar:
+    print("_ ", end =" ")
+print("\n")
+
+#---------------condiciones del juego-----------------------------------------
 
 while vidas > 0:
     error = 0
@@ -48,12 +53,12 @@ while vidas > 0:
     acierto = input("Ingresa una letra: ").upper()
 
     if acierto in letras_adivinar:
-       acierto.add(acierto)
+       aciertos.add(acierto)
     else:
        vidas -= 1
        print("Error")
 
-    print(f"Tienes {vidas} vida/s, \n Ingresa una letra")
+    print(f"Tienes {vidas} vida/s, \n")
     
     if vidas == 0:
        print("¡Perdiste! Mejor suerte en la proxima")
