@@ -1,18 +1,20 @@
 #Hecho por Daniela Calderon
 
+from random import choice  #codigo para seleccion aleatoria de palabras
+
+def escoger_palabra(lista_palabras):
+    palabra_escogida = choice(lista_palabras)
+    return palabra_escogida.upper()
+
+palabras = ["amarillo", "tulipan", "esperanza", "rinoceronte", "dinamarca", "uruguay", "refrigerador", "puntualidad", "python", "culebra"]
+palabra_adivinar = escoger_palabra(palabras)
+letras_adivinar = set(palabra_adivinar)
+aciertos = set()
+vidas = 4
+
 print("Juguemos a adivinar la palabra")  #Mensaje de Inicio
 print(f"Ingresa tu nombre: ") 
 nombre = input()
 
+print(f"Bienvenido/a {nombre}!\n") #Mensaje de bienvenida
 
-print(f"Bienvenido {nombre}!") #Mensaje de bienvenida
-
-def listo_empezar():
-    while True:
-        eleccion = input("¿Listo para jugar? Si / No ")
-        if eleccion in ["si", "Si", "SI"]:
-            return eleccion
-        else:
-            print("Regresa cuando estes listo para jugar")
-eleccion_usuario = listo_empezar()
-print(f"Empecemos")  #inicio del juego
