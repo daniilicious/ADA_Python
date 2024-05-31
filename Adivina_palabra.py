@@ -1,10 +1,11 @@
-#Mensaje de Inicio
-print("Juguemos a adivinar la palabra")  
+#Hecho por Daniela Calderon
+
+print("Juguemos a adivinar la palabra")  #Mensaje de Inicio
 print(f"Ingresa tu nombre: ") 
 nombre = input()
 
-#Mensaje de bienvenida
-print(f"Bienvenido {nombre}!")
+
+print(f"Bienvenido {nombre}!") #Mensaje de bienvenida
 
 def listo_empezar():
     while True:
