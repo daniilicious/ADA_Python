@@ -14,4 +14,4 @@ def listo_empezar():
         else:
             print("Regresa cuando estes listo para jugar")
 eleccion_usuario = listo_empezar()
-print(f"empecemos")  #inicio del juego
+print(f"Empecemos")  #inicio del juego
