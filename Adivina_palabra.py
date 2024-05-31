@@ -10,6 +10,7 @@ palabras = ["amarillo", "tulipan", "esperanza", "rinoceronte", "dinamarca", "uru
 palabra_adivinar = escoger_palabra(palabras)
 letras_adivinar = set(palabra_adivinar)
 aciertos = set()
+errores = set()
 vidas = 5
 
 print("Juguemos a adivinar la palabra")  #Mensaje de Inicio
@@ -36,16 +37,16 @@ for char in palabra_adivinar:
 print("\n")
 
 #---------------condiciones del juego-----------------------------------------
-while vidas > 0:
+while vidas > 0:  #inicio condiciones del juego-------------------------------
     error = 0
     mostrar_palabra = ""
 
-    for char in palabra_adivinar:
+    for char in palabra_adivinar:  #incluir letra de la palabra si adivina
         if char in aciertos:
            mostrar_palabra += char + " "
         else:
             mostrar_palabra += "_ "
-            error += 1
+            error += 1  #incrementa error si no se adivino letra
     
     print(mostrar_palabra)
 
@@ -58,9 +59,12 @@ while vidas > 0:
     if acierto in letras_adivinar:
        aciertos.add(acierto)
     else:
-       vidas -= 1
-       print("Error")
+        if acierto not in errores:  #inclusion letras incorrectas
+            errores.add(acierto)
+            vidas -= 1
+            print("Error")
 
+    print(f"Letras incorrectas: {",".join(errores)}\n")
     print(f"Tienes {vidas} vida/s,\n")
     
     if vidas == 0:
